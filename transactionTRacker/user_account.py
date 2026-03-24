@@ -27,8 +27,6 @@ class UserAccount(Account):
         if amount > self._get_balance():
             raise InsufficientBalanceError("Insufficient balance")
 
-       
-
         txn = Transaction("debit", amount)
         self._update_balance(-amount)
         self._add_transaction(txn)
@@ -38,11 +36,11 @@ class UserAccount(Account):
     def get_balance(self) -> float:
         return self._get_balance()
 
-    def get_summary(self):
+    def get_summary(self) -> dict:
         return {
             "balance": self.get_balance(),
             "transactions": [str(txn) for txn in self._get_transactions()]
         }
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"UserAccount(name={self.name}, balance=₹{self.get_balance()})"
