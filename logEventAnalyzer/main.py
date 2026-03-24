@@ -12,5 +12,5 @@ analyzer.add_log("2024-06-01 12:00:00| INFO | User logged in")
 # analyzer.add_log(678) #invalid type log entry
 # analyzer.add_log() #missing argument log entry
 print("level summary:", analyzer.get_level_summary())
-
+print( "top messages:", analyzer.get_top_messages(2))
 print( "top messages:", analyzer.get_top_messages(1))  
